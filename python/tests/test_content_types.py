@@ -64,3 +64,11 @@ def test_all_registry_entries_have_required_fields():
         assert ct.mime_type
         assert ct.group
         assert ct.description
+
+
+# Personal note: added this test to verify registry size stays reasonable as
+# new content types are added over time. Adjust the lower bound if needed.
+def test_registry_size_is_reasonable():
+    assert len(CONTENT_TYPE_REGISTRY) >= 100, (
+        "Registry seems too small; was it loaded correctly?"
+    )
