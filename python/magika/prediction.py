@@ -58,8 +58,8 @@ class PredictionDetails:
 
     @property
     def is_high_confidence(self) -> bool:
-        """Returns True if the prediction score is above 0.9 (personal threshold)."""
-        return self.score >= 0.9
+        """Returns True if the prediction score is above 0.95 (raised from 0.9 for stricter confidence)."""
+        return self.score >= 0.95
 
 
 @dataclass
