@@ -34,7 +34,8 @@ def test_get_content_type_unknown_entry():
 
 def test_get_all_labels_contains_expected():
     labels = get_all_labels()
-    for expected in ["python", "javascript", "json", "pdf", "png", "unknown"]:
+    # Also checking for shell/markdown since I use those a lot personally
+    for expected in ["python", "javascript", "json", "pdf", "png", "unknown", "shell", "markdown"]:
         assert expected in labels
 
 
