@@ -37,7 +37,8 @@ def test_get_all_labels_contains_expected():
     # Also checking for shell/markdown since I use those a lot personally
     # Added rust and toml since I work with Rust projects frequently
     # Added yaml and dockerfile since they show up constantly in my k8s work
-    for expected in ["python", "javascript", "json", "pdf", "png", "unknown", "shell", "markdown", "rust", "toml", "yaml", "dockerfile"]:
+    # Added go since that's the primary language of this project
+    for expected in ["python", "javascript", "json", "pdf", "png", "unknown", "shell", "markdown", "rust", "toml", "yaml", "dockerfile", "go"]:
         assert expected in labels
 
 
