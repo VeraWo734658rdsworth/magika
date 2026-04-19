@@ -56,6 +56,11 @@ class PredictionDetails:
             f"score={self.score:.2%}, mime={self.mime_type})"
         )
 
+    @property
+    def is_high_confidence(self) -> bool:
+        """Returns True if the prediction score is above 0.9 (personal threshold)."""
+        return self.score >= 0.9
+
 
 @dataclass
 class MagikaPrediction:
