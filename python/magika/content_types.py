@@ -35,6 +35,14 @@ CONTENT_TYPE_REGISTRY: dict[str, ContentTypeInfo] = {
         extensions=[".js", ".mjs"],
         is_text=True,
     ),
+    "typescript": ContentTypeInfo(
+        label="typescript",
+        mime_type="text/typescript",
+        group="code",
+        description="TypeScript source code",
+        extensions=[".ts", ".tsx"],
+        is_text=True,
+    ),
     "json": ContentTypeInfo(
         label="json",
         mime_type="application/json",
