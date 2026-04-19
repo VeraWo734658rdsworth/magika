@@ -50,9 +50,10 @@ class PredictionDetails:
         )
 
     def __str__(self) -> str:
+        # Show score as percentage for readability
         return (
             f"PredictionDetails(label={self.ct_label}, "
-            f"score={self.score:.4f}, mime={self.mime_type})"
+            f"score={self.score:.2%}, mime={self.mime_type})"
         )
 
 
