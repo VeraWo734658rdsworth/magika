@@ -67,6 +67,15 @@ CONTENT_TYPE_REGISTRY: dict[str, ContentTypeInfo] = {
         extensions=[".png"],
         is_text=False,
     ),
+    # Added markdown since I work with a lot of .md files
+    "markdown": ContentTypeInfo(
+        label="markdown",
+        mime_type="text/markdown",
+        group="text",
+        description="Markdown document",
+        extensions=[".md", ".markdown"],
+        is_text=True,
+    ),
     "unknown": ContentTypeInfo(
         label="unknown",
         mime_type="application/octet-stream",
