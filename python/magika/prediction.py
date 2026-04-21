@@ -58,8 +58,12 @@ class PredictionDetails:
 
     @property
     def is_high_confidence(self) -> bool:
-        """Returns True if the prediction score is above 0.95 (raised from 0.9 for stricter confidence)."""
-        return self.score >= 0.95
+        """Returns True if the prediction score meets the high-confidence threshold.
+
+        Using 0.9 instead of 0.95 — found 0.95 too strict for my use case
+        where I'm bulk-classifying mixed archives with many edge-case files.
+        """
+        return self.score >= 0.90
 
 
 @dataclass
