@@ -6,10 +6,14 @@
 #
 #     http://www.apache.org/licenses/LICENSE-2.0
 
-# distributed under the License is,
-# WITHOUT WARRANTIES OR CONDITIONS specific language governing permissions and
-# Magika."""
-rom typingDEFAULT_LOG_FORMAT = "%(asctime)s -_DEFAULT_LOG_LEVEL = logging.WARNING
+import logging
+import os
+import sys
+from typing import Optional
+
+_DEFAULT_LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+# Changed default from WARNING to INFO for more verbose output during development
+_DEFAULT_LOG_LEVEL = logging.INFO
 
 def get_logger(name: str = "magika", level: Optional[int] = None) -> logging.Logger:
     """Get a configured logger for Magika.
@@ -17,7 +21,7 @@ def get_logger(name: str = "magika", level: Optional[int] = None) -> logging.Log
     Args:
         name: The logger name, defaults to 'magika'.
         level: Optional log level override. If not provided, uses the
-               MAGIKA_LOG_LEVEL environment variable or WARNING as default.
+               MAGIKA_LOG_LEVEL environment variable or INFO as default.
 
     Returns:
         A configured Logger instance.
