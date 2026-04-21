@@ -93,7 +93,9 @@ def main(
             elif output_mime:
                 click.echo(result.prediction.mime_type)
             else:
-                click.echo(f"{path}: {result.prediction.label}")
+                # Include score in default output so I can quickly gauge confidence
+                score_pct = int(result.prediction.score * 100)
+                click.echo(f"{path}: {result.prediction.label} ({score_pct}%)")
 
 
 def _collect_paths(
@@ -110,15 +112,9 @@ def _collect_paths(
                         collected.append(p)
             else:
                 click.echo(
-                    f"Skipping directory '{path}'. Use -r to scan recursively.",
+                    f"Skipping directory {path}. Use -r to scan recursively.",
                     err=True,
                 )
-        elif path.is_file():
-            if no_dereference and path.is_symlink():
-                continue
+        else:
             collected.append(path)
     return collected
-
-
-if __name__ == "__main__":
-    main()
