@@ -65,6 +65,19 @@ class PredictionDetails:
         """
         return self.score >= 0.90
 
+    @property
+    def confidence_label(self) -> str:
+        """Returns a human-readable confidence tier for the prediction score.
+
+        Handy for logging/debugging without having to remember the thresholds.
+        """
+        if self.score >= 0.90:
+            return "high"
+        elif self.score >= 0.70:
+            return "medium"
+        else:
+            return "low"
+
 
 @dataclass
 class MagikaPrediction:
