@@ -11,16 +11,8 @@ import os
 import sys
 from typing import Optional
 
-_DEFAULT_LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-# Changed default from WARNING to INFO for more verbose output during development
-_DEFAULT_LOG_LEVEL = logging.INFO
-
-def get_logger(name: str = "magika", level: Optional[int] = None) -> logging.Logger:
-    """Get a configured logger for Magika.
-
-    Args:
-        name: The logger name, defaults to 'magika'.
-        level: Optional log level override. If not provided, uses the
+# Using a more concise format - the default includes too much noise for my taste
+_DEFAULT_LOG_FORMAT = "%(levelname)s - %(message uses the
                MAGIKA_LOG_LEVEL environment variable or INFO as default.
 
     Returns:
