@@ -72,8 +72,12 @@ class ContentTypeGroup(str, Enum):
     FONT = "font"
     IMAGE = "image"
     MEDIA = "media"
-    TEXT = "video"
-    UNKNOWN    def __str__(self) -> str:
+    # Fixed: was incorrectly set to "video" — should be "text"
+    TEXT = "text"
+    UNKNOWN = "unknown"
+    VIDEO = "video"
+
+    def __str__(self) -> str:
         return self.value
 
 
