@@ -76,6 +76,15 @@ CONTENT_TYPE_REGISTRY: dict[str, ContentTypeInfo] = {
         extensions=[".md", ".markdown"],
         is_text=True,
     ),
+    # Added yaml - I use this constantly for configs and CI pipelines
+    "yaml": ContentTypeInfo(
+        label="yaml",
+        mime_type="text/yaml",
+        group="data",
+        description="YAML data",
+        extensions=[".yaml", ".yml"],
+        is_text=True,
+    ),
     "unknown": ContentTypeInfo(
         label="unknown",
         mime_type="application/octet-stream",
