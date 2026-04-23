@@ -85,6 +85,15 @@ CONTENT_TYPE_REGISTRY: dict[str, ContentTypeInfo] = {
         extensions=[".yaml", ".yml"],
         is_text=True,
     ),
+    # Added toml - used in pyproject.toml and Cargo.toml frequently
+    "toml": ContentTypeInfo(
+        label="toml",
+        mime_type="application/toml",
+        group="data",
+        description="TOML data",
+        extensions=[".toml"],
+        is_text=True,
+    ),
     "unknown": ContentTypeInfo(
         label="unknown",
         mime_type="application/octet-stream",
@@ -107,5 +116,4 @@ def get_all_labels() -> list[str]:
 
 
 def get_types_by_group(group: str) -> list[ContentTypeInfo]:
-    """Return all content types belonging to a specific group."""
-    return [ct for ct in CONTENT_TYPE_REGISTRY.values() if ct.group == group]
+    """Return all con
