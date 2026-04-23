@@ -70,6 +70,7 @@ class PredictionDetails:
         """Returns a human-readable confidence tier for the prediction score.
 
         Handy for logging/debugging without having to remember the thresholds.
+        Tiers: high (>=0.90), medium (>=0.70), low (<0.70).
         """
         if self.score >= 0.90:
             return "high"
@@ -101,6 +102,10 @@ class MagikaPrediction:
         """Shortcut to the predicted MIME type."""
         return self.result.output.mime_type
 
+    @property
+    def is_text(self) -> bool:
+        """Shortcut to check if the predicted content type is text-based."""
+        return self.result.output.is_text
+
     def __str__(self) -> str:
         path_str = self.path if self.path else "<bytes>"
-        return f"{path_str}: {self.label} (score={self.score:.4f}, mime={self.mime_type})"
